@@ -30,6 +30,9 @@ Installing
 A step-by-step series of examples that tell you how to get a development environment running:
 
 npm install
+npm run db:init
+npx prisma migrate deploy
+npx prisma db seed
 npm start
 npm test
 
