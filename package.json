@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"type": "commonjs",
 	"scripts": {
-		"start": "node ./dist/main.js",
+		"start": "npm run build  && node ./dist/src/main.js",
 		"build": "tsc",
 		"dev": "nodemon",
 		"generate": "npx prisma generate",
