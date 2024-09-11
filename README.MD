@@ -76,10 +76,38 @@ docker-compose down
 Testing with Postman
 To test the application's API endpoints, ensure your Docker containers are running, then send requests to http://localhost:PORT/api/endpoint.
 
-Deployment
-Notes on how to deploy this on a live system
+## API Testing with Postman
 
-Built With
+We have provided a Postman collection that includes pre-configured requests for all the API endpoints. This makes it easy to test and interact with the API right away.
+
+### How to Use the Postman Collection
+
+1. **Download Postman**: If you haven't already, download and install Postman from [the official website](https://www.postman.com/downloads/).
+
+2. **Import the Collection**:
+   - Download the Postman collection JSON file from the repository (or follow the link provided in the repository if the file is hosted online).
+   - Open Postman and import the collection by clicking `File` > `Import` > `Choose Files` and select the downloaded JSON file.
+
+3. **Configure Environment Variables**:
+   - In Postman, you may need to set up environment variables such as `base_url`. You can do this in the Manage Environments section of Postman.
+   - Example variables include:
+     - `base_url`: Set this to the root URL of your API (e.g., `http://localhost:3000`).
+
+4. **Send Requests**:
+   - After importing the collection and setting up your environment, you can start sending requests to test different functionalities of the API.
+   - Make sure the API server is running and accessible.
+
+### Benefits of Using Our Postman Collection
+
+- **Efficiency**: Quickly test all API endpoints without manually setting up each request.
+- **Accuracy**: Ensures that you are sending requests with the correct parameters and in the proper format.
+- **Convenience**: Provides a ready-made suite of API calls that can be used for both initial testing and regression tests.
+
+
+
+
+
+#Built With
 Express.js - The web framework used
 TypeScript - Typed superset of JavaScript
 class-validator - For validation of request data
