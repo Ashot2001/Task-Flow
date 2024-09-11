@@ -22,7 +22,6 @@ Before running the application, you need to set up necessary environment variabl
 ```plaintext
 # Environment Configuration
 PORT=3000
-SALT=10
 
 # Database connection
 DATABASE_URL="postgresql://username:password@host:port/database?schema=public"
