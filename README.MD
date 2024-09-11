@@ -65,7 +65,10 @@ cd Task-Flow
 
 docker-compose up
 # Use the -d flag for detached mode
-docker-compose up -d
+
+docker-compose run --rm app sh
+npm i 
+npm test
 
 Once the containers are running, you can access the application at http://localhost:PORT
 
