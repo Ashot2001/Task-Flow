@@ -13,73 +13,75 @@ This server application demonstrates how to build scalable and maintainable serv
 - **Modular Architecture**: The project is structured into modules, each responsible for a specific aspect of the application logic.
 - **Validation Middleware**: Uses `class-validator` and `class-transformer` for request data validation, ensuring robust data handling.
 
-## Getting Started
+## Configuration
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### Environment Setup
 
-### Prerequisites
+Before running the application, you need to set up necessary environment variables. Create a `.env` file in the root directory of the project and add the following:
 
-What you need to install the software:
+```plaintext
+# Environment Configuration
+PORT=3000
+SALT=10
 
-```bash
-node
-npm
+# Database connection
+DATABASE_URL="postgresql://username:password@host:port/database?schema=public"
 
 
-Installing
-A step-by-step series of examples that tell you how to get a development environment running:
+Replace the database URL with your actual database credentials. This .env file should not be committed to your version control system (ensure it's listed in your .gitignore).
 
+Getting Started
+Follow these instructions to set up the development environment and run the application locally.
+
+Prerequisites
+Node.js and npm installed on your machine.
+Installation
+A step-by-step guide on how to get a development environment running:
+
+Install Dependencies:
 npm install
+
+Database Initialization:
 npm run db:init
 npx prisma migrate deploy
 npx prisma db seed
+
+Start the Application:
 npm start
+
+Run Tests:
 npm test
 
 
-
 Using Docker for Setup
-This project includes a docker-compose.yml file, which simplifies the setup process by containerizing the application and its dependencies. Follow these steps to use Docker to quickly get the application up and running.
+This project includes a docker-compose.yml file, which simplifies the setup process by containerizing the application and its dependencies.
 
-Prerequisites
-Ensure you have Docker and Docker Compose installed on your machine. If you do not have Docker installed, please follow the installation instructions on the official Docker website.
+Docker Prerequisites
+Ensure you have Docker and Docker Compose installed on your machine. If not, please follow the installation instructions on the official Docker website.
 
-Running the Application with Docker
-Clone the Repository: First, clone the repository to your local machine:
-
+Running with Docker
+Clone the Repository:
 git clone https://github.com/Ashot2001/Task-Flow.git
 cd Task-Flow
 
-
-Start Docker Compose:
-
-Execute the following command to start all services defined in the docker-compose.yml file. This command will build the application image and start all the services, including your application and any databases or other dependencies.
-
-
 docker-compose up
-
-Use the -d flag if you want to run it in detached mode:
+# Use the -d flag for detached mode
 docker-compose up -d
 
-
-Accessing the Application:
-
-Once the containers are running, you can access the application at http://localhost:PORT, where PORT is the port you have configured in your docker-compose.yml.
+Once the containers are running, you can access the application at http://localhost:PORT
 
 Stopping the Application:
-
-To stop all services, use the following Docker Compose command:
-
 docker-compose down
 
 Testing with Postman
-To test the application's API endpoints, you can use Postman. Make sure your Docker containers are running, and then send requests to http://localhost:PORT/api/endpoint, replacing PORT with the appropriate port number and endpoint with the actual API endpoint you wish to test. This allows you to interact with your application as if it were in a live production environment.
+To test the application's API endpoints, ensure your Docker containers are running, then send requests to http://localhost:PORT/api/endpoint.
 
 Deployment
-Notes on how to deploy this on a live system.
+Notes on how to deploy this on a live system
 
 Built With
 Express.js - The web framework used
 TypeScript - Typed superset of JavaScript
 class-validator - For validation of request data
 class-transformer - For transforming plain object to class instances
+
