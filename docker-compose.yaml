@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    image: ashot001/task-flow
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/mydatabase
+    depends_on:
+      - db
+    env_file:
+      - .env  
+    command: ["sh", "-c", "npx prisma migrate deploy --schema=/usr/src/app/prisma/schema.prisma && node /usr/src/app/dist/src/main.js"]
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=mydatabase
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
